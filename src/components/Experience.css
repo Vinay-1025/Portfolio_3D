@@ -1,0 +1,356 @@
+.experience {
+  position: relative;
+}
+
+.exp__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(255, 179, 71, 0.02) 50%, transparent);
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+.exp-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Company Tabs ── */
+.exp-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: sticky;
+  top: 100px;
+}
+
+.exp-tab {
+  background: rgba(17, 24, 39, 0.5);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.exp-tab:hover {
+  border-color: var(--tab-color, var(--cyan));
+  background: rgba(0, 245, 255, 0.04);
+}
+
+.exp-tab--active {
+  border-left-color: var(--tab-color, var(--cyan));
+  background: rgba(0, 245, 255, 0.06);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.05);
+}
+
+.exp-tab__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.exp-tab__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.exp-tab__company {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.exp-tab__role {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.exp-tab__period {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* ── Content Area ── */
+.exp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.exp-content__header {
+  padding: 1.8rem;
+  border-top: 3px solid var(--company-color, var(--cyan));
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-content__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: radial-gradient(ellipse at top left, rgba(0, 245, 255, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.exp-content__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.exp-content__role {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.exp-content__company {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+}
+
+.exp-content__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.exp-meta-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.exp-type-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-secondary);
+}
+
+.exp-content__summary {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.exp-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ── Projects ── */
+.exp-projects__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.exp-projects__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.proj-card {
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.proj-card:hover,
+.proj-card--expanded {
+  border-left-color: var(--proj-color, var(--cyan));
+  background: rgba(0, 245, 255, 0.04);
+}
+
+.proj-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+
+.proj-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.proj-card__name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.proj-card__toggle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition: transform 0.3s;
+}
+
+.proj-card--expanded .proj-card__toggle {
+  transform: rotate(0deg);
+}
+
+.proj-card__body {
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.proj-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+}
+
+.proj-card__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.proj-highlight {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid;
+  background: rgba(0, 245, 255, 0.04);
+}
+
+.proj-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(0, 245, 255, 0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .exp-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exp-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    position: static;
+    padding-bottom: 0.5rem;
+    gap: 0.6rem;
+    scrollbar-width: none;
+  }
+
+  .exp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-tab {
+    min-width: 200px;
+    flex-shrink: 0;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .exp-tab--active {
+    border-left-color: transparent;
+    border-bottom-color: var(--tab-color, var(--cyan));
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-content__title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exp-content__meta {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .exp-content__header {
+    padding: 1.2rem;
+  }
+
+  .proj-card {
+    padding: 1rem;
+  }
+
+  .exp-tab {
+    min-width: 160px;
+  }
+}
+
+.know-more {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 10px 10px 0;
+}

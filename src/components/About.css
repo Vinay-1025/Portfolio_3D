@@ -1,0 +1,208 @@
+.about {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 245, 255, 0.02) 50%, transparent 100%);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about__bio {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.about__buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-highlight {
+  color: var(--hl-color, var(--cyan));
+  font-weight: 600;
+  position: relative;
+  display: inline;
+}
+
+.about-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--hl-color, var(--cyan));
+  opacity: 0.4;
+  border-radius: 99px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.about-highlight:hover::after {
+  transform: scaleX(1);
+}
+
+.about__meta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  min-width: 100px;
+  letter-spacing: 0.05em;
+}
+
+.meta-val {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Card wrap */
+.about__card-wrap {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__img-card {
+  width: 280px;
+  height: 320px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  white-space: pre;
+  text-align: left;
+}
+
+.about__code::first-line {
+  color: var(--cyan);
+}
+
+.about__code .last-line {
+  color: var(--cyan);
+}
+
+.about__card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Floating tags */
+.about__float-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  animation: tag-float 4s ease-in-out infinite;
+}
+
+.about__float-tag--1 {
+  top: 25px;
+  right: 70px;
+  animation-delay: 0s;
+}
+
+.about__float-tag--2 {
+  bottom: 80px;
+  right: 10px;
+  animation-delay: 1.3s;
+}
+
+.about__float-tag--3 {
+  bottom: 40px;
+  left: 40px;
+  animation-delay: 0.7s;
+}
+
+@keyframes tag-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .about__card-wrap {
+    height: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__img-card {
+    width: 240px;
+    height: 280px;
+    padding: 1rem;
+  }
+
+  .about__code {
+    font-size: 0.65rem;
+    text-align: left;
+  }
+
+  .about__float-tag {
+    display: none;
+    /* Hide floating tags on very small screens to avoid overlap */
+  }
+
+  .meta-label {
+    min-width: 80px;
+    text-align: left;
+  }
+
+  .about__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}

@@ -1,0 +1,17 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+
+  .hero__bio,
+  .about__bio,
+  .exp-content__summary,
+  .proj-card__desc,
+  .proj-gsap-desc,
+  .edu-description {
+    text-align: justify !important;
+    /* hyphens: auto; */
+  }
+}

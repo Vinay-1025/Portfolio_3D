@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vinaysriram-gavara.web.app/sitemap.xml
